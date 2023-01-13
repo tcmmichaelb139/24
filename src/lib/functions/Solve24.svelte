@@ -1,5 +1,5 @@
 <script type="ts" context="module">
-	import { number } from 'mathjs';
+	import { CheckSolve } from './CheckSolve.svelte';
 	import { findAllSolutions } from './Solver.svelte';
 
 	let allSol: any[][][] = [];
@@ -36,7 +36,7 @@
 			let fullSol: string = '';
 			for (let sol of solSteps) if (sol.length > fullSol.length) fullSol = sol;
 
-			if (!solutions.includes(fullSol)) solutions.push(fullSol);
+			if (!solutions.includes(fullSol)) if (CheckSolve(fullSol) == '24') solutions.push(fullSol);
 		}
 		return solutions;
 	}

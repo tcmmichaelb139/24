@@ -1,40 +1,16 @@
 <script lang="ts">
-	import { evaluate } from 'mathjs';
-
 	import GridNumbers from '$lib/components/GameComponents/GridNumbers.svelte';
 	import SubmitFrom from '$lib/components/GameComponents/SubmitFrom.svelte';
 	import Solutions from '$lib/components/GameComponents/Solutions.svelte';
 
 	import { UpdateAll } from '$lib/functions/UpdateAll.svelte';
 	import { solve24 } from '$lib/functions/Solve24.svelte';
-
-	const allowedOperations: string[] = ['+', '-', '*', '/', '(', ')'];
-	const allowedNumbers: string[] = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
+	import { CheckSolve } from '$lib/functions/CheckSolve.svelte';
 
 	let randomNumbers: number[] = [];
 	$: solutions = solve24(randomNumbers);
 	let inputEquation: string = '';
-	let evaluatedEquation: string = '';
-	$: {
-		try {
-			let ok: boolean = true;
-			for (let i = 0; i < inputEquation.length; i++)
-				if (
-					!allowedNumbers.includes(inputEquation[i]) &&
-					!allowedOperations.includes(inputEquation[i])
-				)
-					ok = false;
-
-			if (ok) {
-				evaluatedEquation = evaluate(inputEquation);
-			} else {
-				evaluatedEquation = 'Failed To Parse';
-			}
-			if (inputEquation === '') evaluatedEquation = 'Check';
-		} catch (error) {
-			evaluatedEquation = '...';
-		}
-	}
+	$: evaluatedEquation = CheckSolve(inputEquation);
 	let givenUp = false;
 
 	randomNumbers = UpdateAll().slice(0);
