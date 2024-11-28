@@ -75,19 +75,19 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: space-evenly;
-		margin: 0.5em 2em;
+		margin: 0.5em 0;
 	}
 
 	.game-wrapper {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 1em 1em;
+		margin: 1rem 0.5rem;
 		width: 35rem;
 	}
 
 	.options-wrapper {
-		padding: 1em 1em;
+		padding: 1rem 0.5rem;
 		width: 35rem;
 	}
 </style>

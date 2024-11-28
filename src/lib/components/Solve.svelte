@@ -37,7 +37,7 @@
 		background-color: var(--bg-color);
 		border: none;
 		border-radius: 1rem;
-		box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.2), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+		box-shadow: inset 0.5px 0.5px rgba(0, 0, 0, 0.8), inset -3px -3px rgba(0, 0, 0, 0.8);
 		color: var(--fg-color);
 		font-size: 2rem;
 		font-family: 'fira code';

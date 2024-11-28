@@ -18,7 +18,10 @@
 			The 24 game is an arithmetical puzzle in which the objective is to find a way to manipulate
 			four integers so that the end result is 24.
 		</p>
-		<p>The allowed operations include +, -, *, and /. Parentheses can also be used.</p>
+		<p>
+			Every number must be used exactly once, and the allowed operations include +, -, *, and /.
+			Parentheses can also be used.
+		</p>
 
 		<a href="https://en.wikipedia.org/wiki/24_Game" target="_blank" rel="noreferrer">
 			More information
