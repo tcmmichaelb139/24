@@ -17,9 +17,10 @@
 		align-items: center;
 		cursor: pointer;
 		color: var(--violet);
+		margin: 0.5rem 0;
 	}
 	.text {
-		margin-right: 0.5rem;
+		margin-right: 1rem;
 		font-size: 1;
 	}
 	.toggle-container {

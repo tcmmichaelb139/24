@@ -28,6 +28,6 @@
 		grid-template-columns: auto auto;
 	}
 	.solution {
-		font-size: 1.5vw;
+		font-size: 1rem;
 	}
 </style>

@@ -4,9 +4,10 @@
 
 	let allSol: any[][][] = [];
 
-	export function solve24(numbers: number[]) {
+	export function solve24(numbers: number[], goal: number) {
+		if (goal === undefined) return [];
 		for (let i in numbers) if (i == null) return [];
-		allSol = findAllSolutions(numbers);
+		allSol = findAllSolutions(numbers, goal);
 		let solutions: string[] = [];
 		for (let solution of allSol) {
 			let solSteps: string[] = numbers.map((num) => {
@@ -36,7 +37,8 @@
 			let fullSol: string = '';
 			for (let sol of solSteps) if (sol.length > fullSol.length) fullSol = sol;
 
-			if (!solutions.includes(fullSol)) if (CheckSolve(fullSol) == '24') solutions.push(fullSol);
+			if (!solutions.includes(fullSol))
+				if (CheckSolve(fullSol) == goal.toString()) solutions.push(fullSol);
 		}
 		return solutions;
 	}

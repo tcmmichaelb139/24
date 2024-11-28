@@ -7,13 +7,15 @@
 	import { solve24 } from '$lib/functions/Solve24.svelte';
 	import { CheckSolve } from '$lib/functions/CheckSolve.svelte';
 
+	export let goal: number;
+
 	let randomNumbers: number[] = [];
-	$: solutions = solve24(randomNumbers);
+	$: solutions = solve24(randomNumbers, goal);
 	let inputEquation: string = '';
 	$: evaluatedEquation = CheckSolve(inputEquation);
 	let givenUp = false;
 
-	randomNumbers = UpdateAll().slice(0);
+	randomNumbers = UpdateAll(goal).slice(0);
 </script>
 
 <div class="wrapper">
@@ -22,7 +24,13 @@
 
 		<GridNumbers bind:randomNumbers />
 
-		<SubmitFrom bind:randomNumbers bind:inputEquation bind:evaluatedEquation bind:givenUp />
+		<SubmitFrom
+			bind:randomNumbers
+			bind:inputEquation
+			bind:evaluatedEquation
+			bind:givenUp
+			bind:goal
+		/>
 	</div>
 
 	<div>
@@ -32,24 +40,14 @@
 
 <style>
 	.wrapper {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
+		display: flex;
+		flex-direction: column;
 		align-items: flex-start;
-		margin: 0 auto;
-		width: 100%;
 	}
 
 	.game-wrapper {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		margin: 0 auto;
-		width: 100%;
-	}
-
-	:global(h1) {
-		color: var(--emerald);
-		margin: 0;
-		font-size: 4.5vw;
 	}
 </style>

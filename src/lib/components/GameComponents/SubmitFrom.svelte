@@ -8,6 +8,7 @@
 	export let inputEquation: string;
 	export let evaluatedEquation: string;
 	export let givenUp = false;
+	export let goal: number;
 
 	function checkForm(event: Event) {
 		let nums = splitEquation(inputEquation, allowedOperations);
@@ -15,17 +16,17 @@
 		for (let i = 0; i < Math.min(nums.length, randomNumbers.length); i++)
 			if (nums[i] !== randomNumbers[i]) same = false;
 
-		if (same && evaluatedEquation == '24') {
+		if (same && evaluatedEquation == goal.toString()) {
 			inputEquation = '';
 			givenUp = false;
 			alert('Congrats');
-			randomNumbers = UpdateAll().slice(0);
+			randomNumbers = UpdateAll(goal).slice(0);
 		}
 	}
 	function onClickReload() {
 		inputEquation = '';
 		givenUp = false;
-		randomNumbers = UpdateAll().slice(0);
+		randomNumbers = UpdateAll(goal).slice(0);
 	}
 
 	function onClickGiveUp() {
@@ -47,30 +48,30 @@
 	.form {
 		display: flex;
 		flex-direction: column;
-		width: 26vw;
-		margin-top: 1vw;
+		width: 26rem;
+		margin-top: 1rem;
 	}
 
 	.form input {
 		background-color: var(--bg-color);
 		border: none;
-		border-radius: 1vw;
-		box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.2), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+		border-radius: 1rem;
+		box-shadow: inset 0.5px 0.5px rgba(0, 0, 0, 0.8), inset -3px -3px rgba(0, 0, 0, 0.8);
 		color: var(--fg-color);
-		font-size: 2vw;
+		font-size: 2rem;
 		font-family: 'fira code';
-		height: 4vw;
+		height: 4rem;
 		outline: none;
-		padding: 0 1vw;
+		padding: 0 1rem;
 	}
 
 	.form input[type='submit'] {
-		box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.2), 2px 2px 6px rgba(0, 0, 0, 0.8);
-		margin-top: 1vw;
+		box-shadow: inset 0.5px 0.5px rgba(0, 0, 0, 0.8), inset -3px -3px rgba(0, 0, 0, 0.8);
+		margin-top: 1rem;
 		color: var(--amber);
 	}
 	.form input[type='submit']:active {
-		box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.2), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+		box-shadow: inset -0.5px -0.5px rgba(0, 0, 0, 0.8), inset 0.5px 0.5px rgba(0, 0, 0, 0.8);
 	}
 
 	.reload-give-up-buttons {
@@ -78,24 +79,24 @@
 	}
 
 	.button {
-		margin-top: 1vw;
+		margin-top: 1rem;
 		background-color: var(--bg-color);
 		border: none;
-		border-radius: 1vw;
-		box-shadow: -2px -2px 6px rgba(255, 255, 255, 0.2), 2px 2px 6px rgba(0, 0, 0, 0.8);
+		border-radius: 1rem;
+		box-shadow: inset 0.5px 0.5px rgba(0, 0, 0, 0.8), inset -3px -3px rgba(0, 0, 0, 0.8);
 		color: var(--sky);
-		font-size: 2vw;
+		font-size: 2rem;
 		font-family: 'fira code';
-		height: 4vw;
+		height: 4rem;
 		outline: none;
-		padding: 0 1vw;
-		width: 12.5vw;
+		padding: 0 1rem;
+		width: 12.5rem;
 	}
 	.button:active {
-		box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.2), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
+		box-shadow: inset -0.5px -0.5px rgba(0, 0, 0, 0.8), inset 0.5px 0.5px rgba(0, 0, 0, 0.8);
 	}
 
 	.reload {
-		margin-right: 1vw;
+		margin-right: 1rem;
 	}
 </style>

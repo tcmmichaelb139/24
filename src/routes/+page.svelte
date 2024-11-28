@@ -1,9 +1,10 @@
 <script lang="ts">
 	import Game from '$lib/components/Game.svelte';
 	import Solve from '$lib/components/Solve.svelte';
-	import Toggle from '$lib/components/Interactive/Toggle.svelte';
+	import Options from '$lib/components/Options.svelte';
 
 	let solve: boolean = false;
+	let goal: number = 24;
 </script>
 
 <svelte:head>
@@ -21,38 +22,80 @@
 </svelte:head>
 
 <div class="page-wrapper">
-	<div>
-		<Toggle text="Solver" bind:toggled={solve} />
+	<div class="game-wrapper">
+		{#if solve}
+			<Solve />
+		{:else}
+			<Game bind:goal />
+		{/if}
 	</div>
-
-	{#if solve}
-		<Solve />
-	{:else}
-		<Game />
-	{/if}
+	<div class="options-wrapper">
+		<Options bind:solve bind:goal />
+	</div>
 </div>
 
 <style>
 	:root {
-		--bg-color: #171717; /* tailwind neutral 900 */
-		--bg-alt-color: #262626; /* tailwind neutral 800  */
-		--fg-color: #a3a3a3; /* tailwind neutral 400 */
-		--blue: #3b82f6; /* tailwind blue 500  */
-		--sky: #0ea5e9; /* tailwind sky 500  */
-		--violet: #8b5cf6; /* tailwind violet 500  */
-		--amber: #f89e0b; /* tailwind amber 500 */
-		--lime: #84cc16; /* tailwind lime 500  */
-		--emerald: #10b981; /* tailwind emerald 500*/
+		/* tokyonight */
+		/* --bg-color: #171717;
+		--bg-alt-color: #262626;
+		--fg-color: #a3a3a3;
+		--blue: #3b82f6;
+		--sky: #0ea5e9;
+		--violet: #8b5cf6;
+		--amber: #f89e0b;
+		--lime: #84cc16;
+		--emerald: #10b981; */
+		--bg-color: #24283b;
+		--bg-alt-color: #1a1b26;
+		--fg-color: #a9b1d6;
+		--blue: #7aa2f7;
+		--sky: #7dcfff;
+		--violet: #bb9af7;
+		--amber: #ff9e64;
+		--lime: #9ece6a;
+		--emerald: #73daca;
 	}
 
 	:global(body) {
 		background-color: var(--bg-color);
 		color: var(--fg-color);
 		font-family: 'Fira Code';
+		margin: 0;
+		padding: 0;
+		height: 100%;
+		width: 100%;
+		overflow-y: scroll;
+	}
+
+	:global(h1) {
+		color: var(--emerald);
+		margin: 0;
+		font-size: 3.5rem;
+	}
+
+	:global(a) {
+		color: var(--violet);
 	}
 
 	.page-wrapper {
-		display: grid;
-		grid-template-columns: 1fr 2fr;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		margin: 0.5em 2em;
+	}
+
+	.game-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding: 1em 1em;
+		width: 35rem;
+	}
+
+	.options-wrapper {
+		padding: 1em 1em;
+		width: 35rem;
 	}
 </style>

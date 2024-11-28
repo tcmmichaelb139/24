@@ -1,6 +1,5 @@
 <script type="ts">
 	import { solve24 } from '$lib/functions/Solve24.svelte';
-	import Solutions from './GameComponents/Solutions.svelte';
 	let num1: number = 1;
 	let num2: number = 1;
 	let num3: number = 1;
@@ -11,21 +10,25 @@
 </script>
 
 <div class="wrapper">
-	<h1>24 Game Solver</h1>
+	<div class="solve-wrapper">
+		<h1>24 Game Solver</h1>
 
-	<input type="number" bind:value={num1} min="1" max="10" />
-	<input type="number" bind:value={num2} min="1" max="10" />
-	<input type="number" bind:value={num3} min="1" max="10" />
-	<input type="number" bind:value={num4} min="1" max="10" />
+		<div>
+			<input type="number" bind:value={num1} min="1" max="10" />
+			<input type="number" bind:value={num2} min="1" max="10" />
+			<input type="number" bind:value={num3} min="1" max="10" />
+			<input type="number" bind:value={num4} min="1" max="10" />
+		</div>
 
-	<div>
-		{#if solutions.length > 0}
-			{#each solutions as solution}
-				<p>{solution}</p>
-			{/each}
-		{:else}
-			<p>No solutions</p>
-		{/if}
+		<div>
+			{#if solutions.length > 0}
+				{#each solutions as solution}
+					<p>{solution}</p>
+				{/each}
+			{:else}
+				<p>No solutions</p>
+			{/if}
+		</div>
 	</div>
 </div>
 
@@ -33,16 +36,29 @@
 	input {
 		background-color: var(--bg-color);
 		border: none;
-		border-radius: 1vw;
+		border-radius: 1rem;
 		box-shadow: inset -2px -2px 6px rgba(255, 255, 255, 0.2), inset 2px 2px 6px rgba(0, 0, 0, 0.8);
 		color: var(--fg-color);
-		font-size: 2vw;
+		font-size: 2rem;
 		font-family: 'fira code';
-		height: 4vw;
+		height: 4rem;
 		outline: none;
-		padding: 0 1vw;
+		padding: 0 1rem;
 	}
+
 	input[type='number']::-webkit-inner-spin-button {
 		-webkit-appearance: none;
+	}
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.solve-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 </style>
