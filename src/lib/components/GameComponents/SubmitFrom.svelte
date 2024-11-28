@@ -65,6 +65,10 @@
 		padding: 0 1rem;
 	}
 
+	.form input::placeholder {
+		color: var(--gray-color);
+	}
+
 	.form input[type='submit'] {
 		box-shadow: inset 0.5px 0.5px rgba(0, 0, 0, 0.8), inset -3px -3px rgba(0, 0, 0, 0.8);
 		margin-top: 1rem;

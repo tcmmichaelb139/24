@@ -37,18 +37,10 @@
 <style>
 	:root {
 		/* tokyonight */
-		/* --bg-color: #171717;
-		--bg-alt-color: #262626;
-		--fg-color: #a3a3a3;
-		--blue: #3b82f6;
-		--sky: #0ea5e9;
-		--violet: #8b5cf6;
-		--amber: #f89e0b;
-		--lime: #84cc16;
-		--emerald: #10b981; */
 		--bg-color: #24283b;
 		--bg-alt-color: #1a1b26;
 		--fg-color: #a9b1d6;
+		--gray-color: #565f89;
 		--blue: #7aa2f7;
 		--sky: #7dcfff;
 		--violet: #bb9af7;
