@@ -1,4 +1,5 @@
-<script type="ts" context="module">
+<!-- @migration-task Error while migrating Svelte code: Unexpected token -->
+<script lang="ts" context="module">
 	let allSol: any[][][] = [];
 
 	export function findAllSolutions(numbers: number[], goal: number) {

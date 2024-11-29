@@ -1,5 +1,5 @@
-<script type="ts">
-	export let randomNumbers: number[];
+<script lang="ts">
+	let { randomNumbers } = $props();
 </script>
 
 <div class="grid-numbers">
@@ -27,7 +27,9 @@
 	}
 	.numbers {
 		background-color: var(--bg-color);
-		box-shadow: inset 0.5px 0.5px rgba(0, 0, 0, 0.8), inset -3px -3px rgba(0, 0, 0, 0.8);
+		box-shadow:
+			inset 0.5px 0.5px rgba(0, 0, 0, 0.8),
+			inset -3px -3px rgba(0, 0, 0, 0.8);
 		border-radius: 1rem;
 		color: var(--blue);
 		display: flex;

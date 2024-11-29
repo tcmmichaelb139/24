@@ -3,8 +3,8 @@
 	import Solve from '$lib/components/Solve.svelte';
 	import Options from '$lib/components/Options.svelte';
 
-	let solve: boolean = false;
-	let goal: number = 24;
+	let solve: boolean = $state(false);
+	let goal: number = $state(24);
 </script>
 
 <svelte:head>
@@ -24,9 +24,9 @@
 <div class="page-wrapper">
 	<div class="game-wrapper">
 		{#if solve}
-			<Solve />
+			<Solve {goal} />
 		{:else}
-			<Game bind:goal />
+			<Game {goal} />
 		{/if}
 	</div>
 	<div class="options-wrapper">

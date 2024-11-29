@@ -2,8 +2,12 @@
 	import Toggle from '$lib/components/Interactive/Toggle.svelte';
 	import Number from '$lib/components/Interactive/Number.svelte';
 
-	export let solve: boolean = false;
-	export let goal: number = 24;
+	interface Props {
+		solve?: boolean;
+		goal?: number;
+	}
+
+	let { solve = $bindable(false), goal = $bindable(24) }: Props = $props();
 </script>
 
 <div class="wrapper">

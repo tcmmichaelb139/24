@@ -7,13 +7,13 @@
 	import { solve24 } from '$lib/functions/Solve24.svelte';
 	import { CheckSolve } from '$lib/functions/CheckSolve.svelte';
 
-	export let goal: number;
+	let { goal } = $props();
 
-	let randomNumbers: number[] = [];
-	$: solutions = solve24(randomNumbers, goal);
-	let inputEquation: string = '';
-	$: evaluatedEquation = CheckSolve(inputEquation);
-	let givenUp = false;
+	let randomNumbers: number[] = $state([]);
+	let solutions = $derived(solve24(randomNumbers, goal));
+	let inputEquation: string = $state('');
+	let evaluatedEquation = $derived(CheckSolve(inputEquation));
+	let givenUp = $state(false);
 
 	randomNumbers = UpdateAll(goal).slice(0);
 </script>
@@ -22,19 +22,13 @@
 	<div class="game-wrapper">
 		<h1>24 Game</h1>
 
-		<GridNumbers bind:randomNumbers />
+		<GridNumbers {randomNumbers} />
 
-		<SubmitFrom
-			bind:randomNumbers
-			bind:inputEquation
-			bind:evaluatedEquation
-			bind:givenUp
-			bind:goal
-		/>
+		<SubmitFrom bind:randomNumbers bind:inputEquation {evaluatedEquation} bind:givenUp {goal} />
 	</div>
 
 	<div>
-		<Solutions bind:givenUp bind:solutions />
+		<Solutions {givenUp} {solutions} />
 	</div>
 </div>
 

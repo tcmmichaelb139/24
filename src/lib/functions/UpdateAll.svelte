@@ -1,4 +1,5 @@
-<script type="ts" context="module">
+<!-- @migration-task Error while migrating Svelte code: Unexpected token -->
+<script lang="ts" context="module">
 	import { gen4RandomNumbers } from '$lib/functions/Gen4RandomNumbers.svelte';
 	import { solve24 } from '$lib/functions/Solve24.svelte';
 

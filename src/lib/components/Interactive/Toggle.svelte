@@ -1,4 +1,5 @@
-<script type="ts">
+<!-- @migration-task Error while migrating Svelte code: Unexpected token -->
+<script lang="ts">
 	export let text: string;
 	export let toggled: boolean;
 </script>
@@ -7,7 +8,7 @@
 	<div class="text">{text}</div>
 	<div class="toggle-container">
 		<input class="solve-or-game" type="checkbox" bind:checked={toggled} />
-		<div class="toggle" />
+		<div class="toggle"></div>
 	</div>
 </label>
 

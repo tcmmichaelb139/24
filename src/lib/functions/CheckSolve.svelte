@@ -1,4 +1,4 @@
-<script type="ts" context="module">
+<script lang="ts" context="module">
 	import { evaluate } from 'mathjs';
 
 	const allowedOperations: string[] = ['+', '-', '*', '/', '(', ')'];

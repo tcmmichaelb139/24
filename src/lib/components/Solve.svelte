@@ -1,12 +1,18 @@
-<script type="ts">
+<!-- @migration-task Error while migrating Svelte code: Unexpected token -->
+<script lang="ts">
 	import { solve24 } from '$lib/functions/Solve24.svelte';
-	let num1: number = 1;
-	let num2: number = 1;
-	let num3: number = 1;
-	let num4: number = 1;
+	let num1: number = $state(1);
+	let num2: number = $state(1);
+	let num3: number = $state(1);
+	let num4: number = $state(1);
 
-	$: solutions = solve24([num1, num2, num3, num4]);
-	$: console.log(solutions);
+	interface Props {
+		goal: number;
+	}
+
+	let { goal = 24 }: Props = $props();
+
+	let solutions = $derived(solve24([num1, num2, num3, num4], goal));
 </script>
 
 <div class="wrapper">
@@ -37,7 +43,9 @@
 		background-color: var(--bg-color);
 		border: none;
 		border-radius: 1rem;
-		box-shadow: inset 0.5px 0.5px rgba(0, 0, 0, 0.8), inset -3px -3px rgba(0, 0, 0, 0.8);
+		box-shadow:
+			inset 0.5px 0.5px rgba(0, 0, 0, 0.8),
+			inset -3px -3px rgba(0, 0, 0, 0.8);
 		color: var(--fg-color);
 		font-size: 2rem;
 		font-family: 'fira code';

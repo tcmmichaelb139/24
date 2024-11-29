@@ -1,6 +1,6 @@
-<script type="ts">
-	export let givenUp: boolean;
-	export let solutions: string[];
+<!-- @migration-task Error while migrating Svelte code: Unexpected token -->
+<script lang="ts">
+	let { givenUp = false, solutions = [] } = $props();
 </script>
 
 <div class="solutions-wrapper">
