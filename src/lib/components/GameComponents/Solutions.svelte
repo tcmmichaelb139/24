@@ -1,4 +1,3 @@
-<!-- @migration-task Error while migrating Svelte code: Unexpected token -->
 <script lang="ts">
 	let { givenUp = false, solutions = [] } = $props();
 </script>

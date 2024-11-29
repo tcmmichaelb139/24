@@ -6,7 +6,7 @@
 
 	export function solve24(numbers: number[], goal: number) {
 		if (goal === undefined) return [];
-		for (let i in numbers) if (i == null) return [];
+		for (const i of numbers) if (i == null) return [];
 		allSol = findAllSolutions(numbers, goal);
 		let solutions: string[] = [];
 		for (let solution of allSol) {

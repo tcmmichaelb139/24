@@ -1,4 +1,3 @@
-<!-- @migration-task Error while migrating Svelte code: Unexpected token -->
 <script lang="ts">
 	import { solve24 } from '$lib/functions/Solve24.svelte';
 	let num1: number = $state(1);
@@ -6,13 +5,9 @@
 	let num3: number = $state(1);
 	let num4: number = $state(1);
 
-	interface Props {
-		goal: number;
-	}
+	let { goal = 24 }: { goal: number } = $props();
 
-	let { goal = 24 }: Props = $props();
-
-	let solutions = $derived(solve24([num1, num2, num3, num4], goal));
+	let solutions: string[] = $derived(solve24([num1, num2, num3, num4], goal));
 </script>
 
 <div class="wrapper">
