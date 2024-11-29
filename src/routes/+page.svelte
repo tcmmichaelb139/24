@@ -37,8 +37,8 @@
 <style>
 	:root {
 		/* tokyonight */
-		--bg-color: #24283b;
-		--bg-alt-color: #1a1b26;
+		--bg-color: #1a1b26;
+		--bg-alt-color: #24283b;
 		--fg-color: #a9b1d6;
 		--gray-color: #565f89;
 		--blue: #7aa2f7;

@@ -1,4 +1,3 @@
-<!-- @migration-task Error while migrating Svelte code: Unexpected token -->
 <script lang="ts" context="module">
 	export function gen4RandomNumbers() {
 		let numbers: number[] = [];

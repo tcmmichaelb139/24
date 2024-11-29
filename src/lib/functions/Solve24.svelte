@@ -1,4 +1,3 @@
-<!-- @migration-task Error while migrating Svelte code: Unexpected token -->
 <script lang="ts" context="module">
 	import { CheckSolve } from './CheckSolve.svelte';
 	import { findAllSolutions } from './Solver.svelte';
